@@ -1,0 +1,107 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.header {
+    height: auto;
+    background: orange;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 30px;
+}
+
+#header-logo {
+    width: 7%;
+    margin-bottom: 10px;
+}
+
+.header-links a {
+    font-size: 25px;
+    color: white;
+    text-decoration: none;
+    margin: 5px 0; /* Додано відступи між гіперпосиланнями */
+}
+
+.header-links a:hover {
+    color: silver;
+}
+
+.main {
+    display: flex;
+    flex: 1;
+}
+
+.sidebar {
+    width: 15%;
+    box-sizing: border-box;
+    padding: 10px;
+    text-align: left;
+    font-size: 30px;
+    border-right : 1px solid black;
+
+}
+.sidebar a {
+    display: block;
+    margin-bottom: 10px;
+    color: orange;
+    text-decoration: none;
+}
+
+.sidebar a:hover{
+    color: maroon;
+    font-size: 32px;
+}
+
+.content {
+
+    width: 85%;
+    box-sizing: border-box;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.content img{
+    box-shadow: 2px 2px 5px orange;
+    border : 1px black solid ;
+    border-radius: 15px 30%;
+    width: 30%;
+    margin-bottom: 20px;
+}
+
+.footer {
+    display: flex;
+    height:20vh;
+    background: blue;
+    padding: 20px 20px ;
+}
+.footer a{
+    color: white;
+    font-size: 17px;
+    text-decoration: none;
+}
+.footer-list{
+    list-style-type: none; /* Убираем маркеры */
+}
+.footer-left-align, .footer-middle-align,.footer-right-align {
+    flex: 1;
+}
+.footer-middle-left{
+    text-align: left;
+}
+.footer-middle-align{
+    text-align: center;
+}
+.footer-left-align{
+    text-align: right;
+}
