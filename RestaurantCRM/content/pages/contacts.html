@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="../../css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вкладка Контакти</title>
+    <!-- Подключаем Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .contact-card {
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+        }
+        .contact-card img {
+            max-width: 100%;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <img src="../images/img.png" alt="logo" id="header-logo"/>
+    <ul>
+        <li><a href="index.html">Головна</a></li>
+        <li><a href="#">Новини</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="#">Про Проєкт</a></li>
+        <li><a href="#">Наші Клієнти</a></li>
+        <li><a href="contacts.html">Контакти</a></li>
+
+    </ul>
+</header>
+<div class="container mt-4">
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="contact-card">
+                        <img src="../images/avatar-first.png" alt="Фото 1" class="img-fluid mb-4" style="min-width: 370px ;max-width: 800px; max-height: 500px;">
+                        <h4>Філімонов Євген</h4>
+                        <p>Маестро</p>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="contact-card">
+                        <img src="../images/avatar-second.jpg" alt="Фото 2" class="img-fluid mb-4" style="max-width: 500px; max-height: 500px;">
+                        <h4>Бакалець Андрій</h4>
+                        <p>CIO</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer>
+    <ul>
+        <li><a href ="tel:+380975567680"><ion-icon class= "footer-logos" name="call-outline"></ion-icon></a></li>
+        <li><a href ="mailto:zhekafill@gmail.com"><ion-icon  class= "footer-logos" name="mail-outline"></ion-icon></a></li>
+        <li><a href ="https://t.me/m6estr0"><ion-icon  class= "footer-logos" name="paper-plane-outline"></ion-icon></a></li>
+        <li><a href ="https://wa.me/+380966819943"><ion-icon  class= "footer-logos" name="logo-whatsapp"></ion-icon></a></li>
+        <li><div class="loadingio-spinner-radio-8oyto92pc6"><div class="ldio-xp05scqy4db">
+            <div></div><div></div><div></div>
+        </div></div></li>
+
+    </ul>
+</footer>
+
+
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<!-- Подключаем Bootstrap JS (необходим для работы компонентов) и Popper.js -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
