@@ -297,4 +297,10 @@ FAQ
     color: #0D65D7;
     font-style: italic;
 }
+/* Dishes
+
+ */
+.table-responsive button img {
+    width: 18px;
+}
 

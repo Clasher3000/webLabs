@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Week of Birth</title>
+</head>
+<body>
+<form class = "birthday-form">
+    <label class for="date" >Введіть коли ви народились</label>
+    <input type="date" id="date"/><br>
+    <label class for="result" >Ви народились в:</label>
+    <input type="text" id="result" disabled/><br>
+    <input type="submit" id ="submit-button"/>
+
+</form>
+<script>
+
+    document.getElementById('submit-button').addEventListener('click', function (event) {
+        event.preventDefault();
+        weekFinder();
+    });
+    function weekFinder() {
+        const dateInput = document.getElementById("date");
+        const fullDateValue = dateInput.value;
+        const [year, month, day] = fullDateValue.split("-");
+        const birthDate = new Date(year, month - 1, day);
+        const myDay = birthDate.getDate();
+        const myMonth = birthDate.getMonth() + 1; // Додаємо 1, так як місяці  починаються з 0 (січень) до 11 (грудень).
+        const myYear = birthDate.getFullYear();
+
+        let a = Math.floor((14 - myMonth) / 12);
+        let y = myYear - a;
+        let m = myMonth + 12 * a - 2;
+
+        const dayOfWeek = Math.floor((myDay + y + Math.floor(y / 4) - Math.floor(y / 100) + Math.floor(y / 400) + Math.floor((31 * m) / 12)) % 7);
+
+        // Масив з назвами днів тижня
+        const daysOfWeek = ["неділю", "понеділок", "вівторок", "середа", "четвер", "п'ятницю", "суботу"];
+
+        document.getElementById("result").value = `Ви народились в ${daysOfWeek[dayOfWeek]}`;
+    }
+
+
+
+</script>
+</body>
+</html>

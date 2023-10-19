@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RectangleArea</title>
+</head>
+<body>
+<form class = "area-finder">
+    <label for="a" class = "value-label">Введіть Ширину</label>
+    <input type="text" id ='a' class = "value-container"/> <br>
+    <label for="b" class = "value-label">Введіть Довжину</label>
+    <input type="text" id ='b' class = "value-container"/><br>
+    <label for = "perimeter" class = "result-label">Периметр</label>
+    <input type="text" id ='perimeter' class = "result-container" disabled/><br>
+    <label for = "area" class = "result-label">Площа</label>
+    <input type="text" id ='area' class = "result-container" disabled/><br>
+    <label for = "diagonal" class = "result-label">Діагональ</label>
+    <input type="text" id ='diagonal' class = "result-container" disabled/><br>
+</form>
+<script>
+
+    function calculate() {
+        var a = parseFloat(document.getElementById('a').value);
+        var b = parseFloat(document.getElementById('b').value);
+
+        if (a<0 || b<0){
+           alert("Введіть реальні значення")
+            return;
+        }
+        if (!isNaN(a) && !isNaN(b)) {
+            var perimeter = 2 * (a + b);
+            var area = a * b;
+            var diagonal = Math.sqrt(a * a + b * b);
+
+            document.getElementById('perimeter').value = perimeter;
+            document.getElementById('area').value = area;
+            document.getElementById('diagonal').value = diagonal.toFixed(2);
+        }
+        }
+
+
+    document.getElementById('a').addEventListener('input', function() {
+        this.placeholder = this.value ? '' : 'Введіть Ширину';
+        calculate();
+    });
+
+    document.getElementById('b').addEventListener('input', function() {
+        this.placeholder = this.value ? '' : 'Введіть Довжину';
+        calculate();
+    });
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Messenger</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            display: flex;
+        }
+
+        .user-block {
+            width: 30%;
+            background-color: gainsboro;
+            padding: 20px;
+        }
+
+        .message-block {
+            width: 40%;
+            height: 100vh;
+            background-color: lightgray;
+            padding: 20px;
+            white-space: pre-wrap;
+            overflow-x: auto;
+        }
+        .message-block h5{
+            color:yellow;
+            font-style: italic;
+            margin-top: 2px;
+        }
+        .message-from-1 {
+            background-color: lightseagreen;
+            color: white;
+            display: block;
+            padding: 4px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            word-wrap: break-word;
+            text-align: right;
+        }
+        .message-from-2 {
+            background-color: #0D65D7;
+            color: white;
+            display: block;
+            padding: 4px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            word-wrap: break-word;
+            text-align: left;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+        }
+
+        .submit-button {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        .submit-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="user-block">
+        <form class="message-1" id="form-1">
+            <label for="text-1">Введіть текст</label>
+            <input type="text" id="text-1"/>
+            <input type="button" class="submit-button" id="submit-button-1" value="Відправити"/>
+        </form>
+    </div>
+    <div class="message-block" id="message-block">
+    </div>
+    <div class="user-block">
+        <form class="message-2" id="form-2">
+            <label for="text-2">Введіть текст</label>
+            <input type="text" id="text-2"/>
+            <input type="button" class="submit-button" id="submit-button-2" value="Відправити"/>
+        </form>
+    </div>
+</div>
+<script>
+    function writeMessage(formId) {
+        const parentDiv = document.getElementById('message-block');
+        const message = document.getElementById(`text-${formId}`).value;
+        const newDiv = document.createElement("div");
+
+        if ((message == ("")) || (message == (" "))){
+            alert("Введіть корректне значення");
+            return;
+        }
+
+        newDiv.className = `message-from-${formId}`;
+        newDiv.innerHTML = `<h5>User${formId}</h5>` + message;
+        parentDiv.appendChild(newDiv);
+        document.getElementById(`text-${formId}`).value = "";
+    }
+
+    document.getElementById('submit-button-1').addEventListener('click', function (event) {
+        event.preventDefault();
+        writeMessage('1');
+    });
+
+    document.getElementById('submit-button-2').addEventListener('click', function (event) {
+        event.preventDefault();
+        writeMessage('2');
+    });
+
+</script>
+</body>
+</html>
