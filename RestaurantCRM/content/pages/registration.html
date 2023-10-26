@@ -18,34 +18,56 @@
                 </div>
                 <div class="card-body">
                     <!-- Форма для Реєстрація -->
-                    <form>
+                    <form method="post">
                         <div class="form-group">
                             <label for="email">Електронна пошта:</label>
                             <input type="text" class="form-control" id="email" name="email" required>
+                            <div class="error-message" id="email-error"></div>
                         </div>
                         <div class="form-group">
                             <label for="password">Пароль:</label>
                             <input type="password" class="form-control" id="password" name="password" required>
+                            <div class="error-message" id="password-error"></div>
                         </div>
+
                         <div class="form-group">
                             <label for="family-name">Прізвище:</label>
                             <input type="text" class="form-control" id="family-name" name="family-name" required>
+                            <div class="error-message" id="family-name-error"></div>
                         </div>
                         <div class="form-group">
                             <label for="name">Ім’я:</label>
                             <input type="text" class="form-control" id="name" name="name" required>
+                            <div class="error-message" id="name-error"></div>
                         </div>
                         <div class="form-group">
-                            <label for="username">По батькові:</label>
-                            <input type="text" class="form-control" id="username" name="username" required>
+                            <label for="middle-name">По батькові:</label>
+                            <input type="text" class="form-control" id="middle-name" name="middle-name" required>
+                            <div class="error-message" id="middle-name-error"></div>
                         </div>
                         <div class="form-group">
                             <label for="birth-day">Дата народження:</label>
-                            <input type="date" class="form-control" id="birth-day" name="birth-day" disabled required>
+                            <input type="date" class="form-control" id="birth-day" name="birth-day"  required>
                         </div>
                         <div class="form-group">
+                            <label for="phone-number">Номер телефону:</label>
+                            <input type="tel" class="form-control" id="phone-number" name="phone-number">
+                        </div>
+                        <div class="form-group">
+                            <label>Стать:</label>
+                            <div class="form-check">
+                                <input type="radio" id="male" class="form-check-input" name="gender" value="Чоловік" required checked>
+                                <label for="male" class="form-check-label">Чоловік</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" id="female" class="form-check-input" name="gender" value="Жінка" required>
+                                <label for="female" class="form-check-label">Жінка</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
                             <label for="group">Група:</label>
-                            <select class="form-select" id="group" name="group" required>
+                            <select class="form-select" id="group" name="group">
                                 <option value="" disabled selected>Оберіть групу</option>
                                 <option value="ia-21">IA-21</option>
                                 <option value="ia-22">IA-22</option>
@@ -58,7 +80,7 @@
                             <input type="file" class="form-control" id="avatar" name="avatar" accept="image/*" >
                             <small class="form-text text-muted">Оберіть зображення для аватару (допускаються тільки файли з розширенням .jpg, .jpeg, .png).</small>
                         </div>
-                        <button type="submit" class="btn btn-primary">Реєстрація</button>
+                        <button type="submit" class="btn btn-primary" id="registration-submit" >Реєстрація</button>
                         <a href="autorisation.html">Вхід</a>
                     </form>
                 </div>
@@ -67,8 +89,40 @@
     </div>
 </div>
 
+<table id ="registration-table" class="table">
+    <thead>
+    <tr>
+        <th scope="col">Електронна пошта</th>
+        <th scope="col">Пароль</th>
+        <th scope="col">Прізвище</th>
+        <th scope="col">Ім’я</th>
+        <th scope="col">По батькові</th>
+        <th scope="col">Дата народження</th>
+        <th scope="col">Номер телефону</th>
+        <th scope="col">Стать</th>
+        <th scope="col">Група</th>
+        <th scope="col">Вибрати рядок</th>
+    </tr>
+    </thead>
+</table>
+<button id="duplicate-selected" class="btn btn-primary">Дублювати обрані</button>
+<button id="delete-selected" class="btn btn-primary">Видалити обрані</button>
+
+
+
+<script src="../../scripts/registrationMain.js"></script>
+<script src="https://unpkg.com/imask@7.1.3/dist/imask.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+    // Застосовуємо маску до поля для номеру телефону
+    const element = document.getElementById('phone-number');
+    const maskOptions = {
+        mask: '+{38}(\\000)000-00-00'
+    };
+    const mask = IMask(element, maskOptions);
+</script>
 </body>
 </html>
